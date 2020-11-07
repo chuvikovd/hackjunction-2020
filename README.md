@@ -1,3 +1,3 @@
 # hackjunction-2020
 
-priyom.netlify.app
+https://priyom.netlify.app
