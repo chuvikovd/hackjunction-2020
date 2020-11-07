@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<title>Priyom</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#00aba9">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	<body>
+		<canvas id="scene" class="clickable"></canvas>
+		<input id="file" type="file" accept="audio/*" style='position: fixed; z-index: 10; top: 0; left: 0;' />
+		<audio id="audio" src="mp3/audio2.mp3" style='position: fixed; z-index: 10; top: 0; left: 0; width: 100vw;'></audio>
+		<script src="js/vendors/three.min.js"></script>
+		<script src="js/vendors/TweenMax.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
