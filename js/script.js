@@ -211,15 +211,15 @@ Tunnel.prototype.updateCurve = function() {
 
 let rot = 0
 const incRot = (num) => {
-  rot += num / 50
+  rot += (num || 0.02) / 50
   if (rot > 1) rot -= 1
 
   return rot
 }
 
 Tunnel.prototype.render = function(time) {
-  this.dataArray = window.dataArray
   if (window.analyser) {
+    this.dataArray = window.dataArray
     window.analyser.getByteFrequencyData(dataArray);
 
     this.lowerHalfArray = this.dataArray.slice(0, (dataArray.length/2) - 1);
@@ -366,6 +366,7 @@ window.onload = function() {
     audio.play();
     play(audio)
   };
+
 
   playBtn.addEventListener('click', function(event) {
     event.preventDefault()
