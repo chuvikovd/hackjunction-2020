@@ -15,8 +15,11 @@
 	</head>
 	<body>
 		<canvas id="scene" class="clickable"></canvas>
-		<input id="file" type="file" accept="audio/*" />
-		<audio id="audio" src="mp3/audio2.mp3"></audio>
+		<header>
+			<input id="file" type="file" accept="audio/*" />
+			<button id="play" title="Play"></button>
+		</header>
+		<audio id="audio" type="audio/mpeg" src="mp3/audio2.mp3" autoplay></audio>
 		<footer>
 			Song by <a href="https://soundcloud.com/singularity-dj/singularity-dj-priyom">Singularity DJ</a>
 		</footer>

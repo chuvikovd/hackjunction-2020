@@ -219,22 +219,24 @@ const incRot = (num) => {
 
 Tunnel.prototype.render = function(time) {
   this.dataArray = window.dataArray
-  window.analyser.getByteFrequencyData(dataArray);
+  if (window.analyser) {
+    window.analyser.getByteFrequencyData(dataArray);
 
-  this.lowerHalfArray = this.dataArray.slice(0, (dataArray.length/2) - 1);
-  this.upperHalfArray = this.dataArray.slice((dataArray.length/2) - 1, dataArray.length - 1);
-
-  this.overallMax = max(this.dataArray);
-  this.overallAvg = avg(this.dataArray);
-  this.lowerMax = max(this.lowerHalfArray);
-  this.lowerAvg = avg(this.lowerHalfArray);
-  this.upperMax = max(this.upperHalfArray);
-  this.upperAvg = avg(this.upperHalfArray);
-
-  this.lowerMaxFr = this.lowerMax / this.lowerHalfArray.length;
-  this.lowerAvgFr = this.lowerAvg / this.lowerHalfArray.length;
-  this.upperMaxFr = this.upperMax / this.upperHalfArray.length;
-  this.upperAvgFr = this.upperAvg / this.upperHalfArray.length;
+    this.lowerHalfArray = this.dataArray.slice(0, (dataArray.length/2) - 1);
+    this.upperHalfArray = this.dataArray.slice((dataArray.length/2) - 1, dataArray.length - 1);
+  
+    this.overallMax = max(this.dataArray);
+    this.overallAvg = avg(this.dataArray);
+    this.lowerMax = max(this.lowerHalfArray);
+    this.lowerAvg = avg(this.lowerHalfArray);
+    this.upperMax = max(this.upperHalfArray);
+    this.upperAvg = avg(this.upperHalfArray);
+  
+    this.lowerMaxFr = this.lowerMax / this.lowerHalfArray.length;
+    this.lowerAvgFr = this.lowerAvg / this.lowerHalfArray.length;
+    this.upperMaxFr = this.upperMax / this.upperHalfArray.length;
+    this.upperAvgFr = this.upperAvg / this.upperHalfArray.length;  
+  }
 
   this.updateCameraPosition();
 
@@ -242,8 +244,6 @@ Tunnel.prototype.render = function(time) {
   incRot(this.lowerAvgFr)
   for(var i = 0; i < this.particles.length; i++){
     this.particles[i].mesh.material.color.setHSL(rot, 0.8, 0.6);
-    
-
 
     this.particles[i].update(this);
     if(this.particles[i].burst && this.particles[i].percent > 1){
@@ -355,6 +355,22 @@ window.onload = function() {
   window.tunnel = new Tunnel();
 
   var audio = document.getElementById("audio");
-  audio.play();
-  play(audio)
+  var playBtn = document.getElementById("play");
+  var file = document.getElementById("file");
+
+  file.onchange = function () {
+    const files = this.files;
+
+    audio.src = URL.createObjectURL(files[0]);
+    audio.load();
+    audio.play();
+    play(audio)
+  };
+
+  playBtn.addEventListener('click', function(event) {
+    event.preventDefault()
+
+    audio.play();
+    play(audio)
+  })
 };
