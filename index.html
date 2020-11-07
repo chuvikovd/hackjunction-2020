@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<title>Priyom</title>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -14,8 +15,11 @@
 	</head>
 	<body>
 		<canvas id="scene" class="clickable"></canvas>
-		<input id="file" type="file" accept="audio/*" style='position: fixed; z-index: 10; top: 0; left: 0;' />
-		<audio id="audio" src="mp3/audio2.mp3" style='position: fixed; z-index: 10; top: 0; left: 0; width: 100vw;'></audio>
+		<input id="file" type="file" accept="audio/*" />
+		<audio id="audio" src="mp3/audio2.mp3"></audio>
+		<footer>
+			Song by <a href="https://soundcloud.com/singularity-dj/singularity-dj-priyom">Singularity DJ</a>
+		</footer>
 		<script src="js/vendors/three.min.js"></script>
 		<script src="js/vendors/TweenMax.min.js"></script>
 		<script src="js/script.js"></script>
